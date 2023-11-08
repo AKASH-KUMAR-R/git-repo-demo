@@ -1,7 +1,3 @@
-# My First file in github
+# A copy of my project
 
-
-Hello World!!!!
-It worked successfully.
-
-## Edited from my device
+For making changes to it
