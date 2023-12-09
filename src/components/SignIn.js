@@ -61,8 +61,8 @@ const SignIn = () => {
                     </div>
                 </div>
                 <div className="form-section">
-                    {isClickedSignIn && <h1>Login Section</h1>}
-                    {isClickedSignUp && <h1>Create a Account</h1>}
+                    {isClickedSignIn && <h2>Login Section</h2>}
+                    {isClickedSignUp && <h2>Create a Account</h2>}
                     <form onSubmit={handleSubmit}>
                         <div><input
                             type="email"

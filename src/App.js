@@ -12,9 +12,7 @@ function App() {
             <SignIn />
           </Route>
           <Route path='/survey'>
-            <div className="try">
-              <Survey />
-            </div>
+            <Survey />
           </Route>
         </Switch>
       </div>
