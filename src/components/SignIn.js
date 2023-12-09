@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const SignIn = () => {
+const SignIn = (props) => {
 
-    const userDetails = [
-        { name: "AkashkumarR@gmail.com", password: "12345" },
-        { name: "Abhinand@gmail.com", password: "0987" },
-    ];
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -19,10 +15,12 @@ const SignIn = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const existingUser = userDetails.filter((eachUser) => (eachUser.name === username && eachUser.password === password));
+        const existingUser = props.userDetails.filter((eachUser) => (eachUser.name === username && eachUser.password === password));
 
         if (existingUser.length !== 0) {
             console.log("Signed successfully!!");
+            props.setId(existingUser.id);
+            props.setStatus(true);
             history.push('./survey');
         } else {
             console.log("Doesn't exit");
@@ -35,7 +33,7 @@ const SignIn = () => {
                     <div
                         className="signin"
                         style={{
-                            borderBottom: isClickedSignIn ? '4px solid black' : 'none',
+                            borderBottom: isClickedSignIn ? '3px solid black' : 'none',
                             borderWidth: isClickedSignIn ? '100%' : '0%',
                             opacity: isClickedSignIn ? '1' : '0.4',
                         }}
@@ -48,7 +46,7 @@ const SignIn = () => {
                     <div
                         className="signout"
                         style={{
-                            borderBottom: isClickedSignUp ? '4px solid black' : 'none',
+                            borderBottom: isClickedSignUp ? '3px solid black' : 'none',
                             borderWidth: isClickedSignUp ? '100%' : '0%',
                             opacity: isClickedSignUp ? '1' : '0.4',
 
