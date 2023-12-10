@@ -14,6 +14,9 @@ function App() {
     { id: 2, name: "Abhinand@gmail.com", password: "0987", username: "Abhinand N" },
   ];
 
+  const data = ['Pop', 'Rock', 'Hip-Hop', 'Jazz', 'Classical', 'Folk'];
+
+
   return (
     <Router>
       <div className="main">
@@ -23,7 +26,7 @@ function App() {
             <SignIn setStatus={setStatus} userDetails={userDetails} setId={setId} />
           </Route>
           <Route path='/survey'>
-            <Survey />
+            <Survey data={data} />
           </Route>
           <Route path='/dashboard' userDetails={userDetails} id={id}>
             <DashBoard />

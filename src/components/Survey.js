@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Autocomplete } from "@mui/material";
+import TextField from "@mui/material/TextField";
 
-const Survey = () => {
+const Survey = ({ data }) => {
 
     const [slidePosition, setSlidePosition] = useState(0);
     const translateValue = -slidePosition * 100;
@@ -10,7 +12,7 @@ const Survey = () => {
     const [mood, setMood] = useState('');
     const [artist, setArtist] = useState('');
     const [song, setSong] = useState('');
-    const [genre, setGenre] = useState('abcd');
+    const [genre, setGenre] = useState('');
 
     const handleSubmit = () => {
 
@@ -21,6 +23,14 @@ const Survey = () => {
 
     }
 
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearchChange = (event, value) => {
+        setSearchTerm(value);
+        setGenre(value);
+        // You can implement your search logic here, e.g., filter the data based on the search term
+    };
     return (
         <div className="survey-container">
             <div
@@ -30,7 +40,7 @@ const Survey = () => {
                 }}>
 
                 <div className="slide">
-                    <h4>1.What is your mood ?</h4>
+                    <span>1.What is your mood ?</span>
                     <div className="slide-content">
                         <div className="options">
                             <div><input type="radio" name="mood" value='Happy'
@@ -55,8 +65,8 @@ const Survey = () => {
                     </div>
                 </div>
                 <div className="slide">
-                    <h4>2.At times like these, which </h4>
-                    <h4>artist do you prefer listening to?</h4>
+                    <span>2.At times like these, which </span>
+                    <span>artist do you prefer listening to?</span>
                     <div className="slide-content">
                         <input
                             type="text"
@@ -71,8 +81,8 @@ const Survey = () => {
                 </div>
                 <div className="slide">
 
-                    <h4>3.What sort of songs do </h4>
-                    <h4>you want to listen?</h4>
+                    <span>3.What sort of songs do </span>
+                    <span>you want to listen?</span>
                     <input
                         type="text"
                         className="song"
@@ -84,14 +94,22 @@ const Survey = () => {
                         required></input>
                 </div>
                 <div className="slide">
-                    <h4>Select gerne which you like</h4>
+                    <span>Select gerne which you like</span>
+                    <Autocomplete
+                        options={data}
+                        getOptionLabel={(option) => option} // Replace 'name' with the property you want to display
+                        onChange={() => handleSearchChange()}
+                        renderInput={(params) => (
+                            <TextField {...params} label="Search" variant="outlined" className="gerne-input" />
+                        )}
+                    />
 
                 </div>
 
             </div>
             <div className="navigation-button">
                 <button
-                    className="navigation-slide-button"
+                    className="prev-button"
                     onClick={() => {
                         setSlidePosition((prev) => prev - 1);
                     }}
@@ -99,7 +117,7 @@ const Survey = () => {
                         display: slidePosition > 0 ? 'block' : 'none',
                     }}>Previous</button>
                 <button
-                    className="navigation-slide-button"
+                    className="next-button"
                     onClick={() => {
                         setSlidePosition((prev) => prev + 1);
                     }}
@@ -107,7 +125,7 @@ const Survey = () => {
                         display: slidePosition < 3 ? 'block' : 'none',
                     }}>Next</button>
                 <button
-                    className="navigation-slide-button"
+                    className="submit-button"
                     style={{
                         display: slidePosition === 3 ? 'block' : 'none',
                     }}

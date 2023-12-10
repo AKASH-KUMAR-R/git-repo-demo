@@ -11,10 +11,16 @@ const DashBoard = () => {
         <div className="dashboard">
             <div className="playlist">
                 <div className="playlistcard">
-                    <div className="image-section">
-                        Hello
+
+                    <div className="playlist-detail1">
+                        <h3>General Songs</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Facere, ipsum dolorem aliquid laborum natus</p>
+                        <Link to="/playlist"><button className="button-configuration">View Playlist</button></Link>
                     </div>
-                    <div className="playlist-details">
+                </div>
+                <div className="playlistcard">
+                    <div className="playlist-detail2">
                         <h4>General Songs</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Facere, ipsum dolorem aliquid laborum natus</p>
@@ -22,21 +28,7 @@ const DashBoard = () => {
                     </div>
                 </div>
                 <div className="playlistcard">
-                    <div className="image-section">
-                        Hello
-                    </div>
-                    <div className="playlist-details">
-                        <h4>General Songs</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Facere, ipsum dolorem aliquid laborum natus</p>
-                        <Link to="/playlist"><button className="button-configuration">View Playlist</button></Link>
-                    </div>
-                </div>
-                <div className="playlistcard">
-                    <div className="image-section">
-                        Hello
-                    </div>
-                    <div className="playlist-details">
+                    <div className="playlist-detail3">
                         <h4>General Songs</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Facere, ipsum dolorem aliquid laborum natus</p>
@@ -59,10 +51,10 @@ const DashBoard = () => {
             <div className="premium-container">
                 <div className="premium-heading"><h2>Premium Features</h2></div>
                 <div className="content-container">
-                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><p>Unlimited mood playlist</p></div>
-                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><p>Personalized mood enhancer</p></div>
-                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><p>Ad-free music listening</p></div>
-                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><p>Personalised music experience</p></div>
+                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><span>Unlimited mood playlist</span></div>
+                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><span>Personalized mood enhancer</span></div>
+                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><span>Ad-free music listening</span></div>
+                    <div><img className="tick-image" src="./checkmark.png" alt="tick-mark"></img><span>Personalised music experience</span></div>
                 </div>
             </div>
         </div>

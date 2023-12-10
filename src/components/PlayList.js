@@ -16,14 +16,15 @@ const PlayList = () => {
 
     return (
         <div className="playlist-container">
-
-            {playList.map((eachSong) => (
-                <div key={eachSong.id} className="eachsong-details">
-                    <span>{eachSong.artist}</span>
-                    <span>{eachSong.songName}</span>
-                    <span>{eachSong.album}</span>
-                </div>
-            ))}
+            <div className="playlist-collection">
+                {playList.map((eachSong) => (
+                    <div key={eachSong.id} className="eachsong-details">
+                        <span>{eachSong.artist}</span>
+                        <span>{eachSong.songName}</span>
+                        <span>{eachSong.album}</span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
